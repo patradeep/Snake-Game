@@ -1,0 +1,43 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.body{
+  position: relative;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: rgb(26, 24, 24);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#box{
+  width: 90vmin;
+  height: 92vmin;
+  background: linear-gradient(rgb(39, 74, 65),rgb(12, 74, 71));
+  border: 1px solid bisque;
+  display: grid;
+  grid-template-columns: repeat(28,1fr);
+  grid-template-rows: repeat(28,1fr);
+}
+.snake{
+  background-color:yellow;
+}
+.food{
+  background-color: wheat;
+  border-radius: 16px;
+}
+.snake_head{
+ background-color: red;
+ border-radius: 5px;
+
+}
+#scorebox{
+  color:darkslategray;
+  position: absolute;
+  top: 5vh;
+  right: 6vw;
+  font-size:xx-large;
+  background-color:aquamarine;
+  padding:2px;
+}
