@@ -66,29 +66,56 @@ snakeArr[0].y+=inputdir.y;
 }
 
 window.requestAnimationFrame(main);
-window.addEventListener('keydown',e=>{
-  inputdir={x:1,y:0};
-  backgroundSound.play();
-  backgroundSound.addEventListener('ended', function() {
-  this.currentTime = 0; // Reset the audio to the beginning
-  this.play(); // Replay the audio
-});
-  switch(e.key){
-    case 'ArrowDown':
-      inputdir.y=1;
-      inputdir.x=0;
-      break;
-    case 'ArrowUp':
-      inputdir.y=-1;
-      inputdir.x=0;
-      break;
-    case 'ArrowLeft':
-      inputdir.y=0;
-      inputdir.x=-1;
-      break;
-    case 'ArrowRight':
-      inputdir.y=0;
-      inputdir.x=1;
-      break;
-  }
-})
+
+
+if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+  Down.addEventListener('click', function() {
+    backgroundSound.play();
+    inputdir.y=1;
+    inputdir.x=0;
+  })
+  Up.addEventListener('click', function() {
+    backgroundSound.play();
+    inputdir.y=-1;
+    inputdir.x=0;
+  })
+  Left.addEventListener('click', function() {
+    backgroundSound.play();
+    inputdir.y=0;
+    inputdir.x=-1;
+  })
+  Right.addEventListener('click', function() {
+    backgroundSound.play();
+    inputdir.y=0;
+    inputdir.x=1;
+  })
+  console.log('Mobile device detected');
+}else{
+  window.addEventListener('keydown',e=>{
+    inputdir={x:1,y:0};
+    backgroundSound.play();
+    backgroundSound.addEventListener('ended', function() {
+    this.currentTime = 0; // Reset the audio to the beginning
+    this.play(); // Replay the audio
+  });
+    switch(e.key){
+      case 'ArrowDown':
+        inputdir.y=1;
+        inputdir.x=0;
+        break;
+      case 'ArrowUp':
+        inputdir.y=-1;
+        inputdir.x=0;
+        break;
+      case 'ArrowLeft':
+        inputdir.y=0;
+        inputdir.x=-1;
+        break;
+      case 'ArrowRight':
+        inputdir.y=0;
+        inputdir.x=1;
+        break;
+    }
+  })
+  console.log("not mobile device");
+}
