@@ -7,7 +7,7 @@ let speed=4;
 let snakeArr=[{x:1, y: 1}]
 let food={x:2, y:2}
 let score=0;
-
+ 
 let box=document.getElementById("box");
  
 function main(ct) {
@@ -67,7 +67,7 @@ snakeArr[0].y+=inputdir.y;
 
 window.requestAnimationFrame(main);
 
-
+ 
 if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
   Down.addEventListener('click', function() {
     backgroundSound.play();
